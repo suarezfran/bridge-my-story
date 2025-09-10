@@ -1,0 +1,212 @@
+# Cursor Rules para Bridge My Story
+
+## 🎯 Objetivo del Proyecto
+Este es un proyecto React + Vite que muestra un puente animado entre Montevideo y San Francisco. Cada hito de la historia agrega un tablón al puente y el progreso avanza hasta llegar a San Francisco.
+
+## 🔧 Reglas de Desarrollo
+
+### 1. **VALIDACIÓN OBLIGATORIA DESPUÉS DE CAMBIOS**
+**CRÍTICO**: Después de cualquier cambio completo en el código, SIEMPRE debes:
+
+1. **Compilar y ejecutar la aplicación**:
+   ```bash
+   npm run dev
+   ```
+
+2. **Verificar que no hay errores**:
+   - Revisar la consola del terminal
+   - Verificar que la aplicación carga en http://localhost:5173/
+   - Comprobar que no hay errores de linting
+
+3. **Validar funcionalidades**:
+   - Botón "Siguiente Hito" funciona
+   - Botón "Autoplay" funciona
+   - Animaciones del puente se ejecutan correctamente
+   - Panel de hitos aparece y desaparece
+   - Diseño responsive funciona
+
+### 2. **REGLAS DE CORRECCIÓN DE ERRORES**
+**OBLIGATORIO**: Cuando encuentres CUALQUIER error, DEBES arreglarlo inmediatamente:
+
+#### Errores de Sintaxis:
+- ✅ **SIEMPRE arreglar** comillas faltantes, llaves no cerradas, paréntesis
+- ✅ **SIEMPRE arreglar** errores de JSX (atributos mal formados)
+- ✅ **SIEMPRE arreglar** imports incorrectos o faltantes
+
+#### Errores de Linting:
+- ✅ **SIEMPRE ejecutar** `npm run lint` después de cambios
+- ✅ **SIEMPRE corregir** variables no utilizadas
+- ✅ **SIEMPRE corregir** imports no utilizados
+- ✅ **SIEMPRE corregir** errores de ESLint
+
+#### Errores de Compilación:
+- ✅ **SIEMPRE verificar** que `npm run dev` funciona sin errores
+- ✅ **SIEMPRE verificar** que `npm run build` funciona sin errores
+- ✅ **SIEMPRE corregir** errores de TypeScript/JavaScript
+
+#### Errores de Runtime:
+- ✅ **SIEMPRE probar** la aplicación en el navegador
+- ✅ **SIEMPRE verificar** que las funcionalidades principales funcionan
+- ✅ **SIEMPRE corregir** errores de consola del navegador
+
+### 3. **Estructura del Proyecto**
+- `src/App.jsx`: Componente principal con lógica de hitos y autoplay
+- `src/components/BridgeSVG.jsx`: Componente SVG del puente animado
+- `src/components/MilestonePanel.jsx`: Panel modal para mostrar hitos
+- `src/index.css`: Estilos globales con tema dark y colores verdes
+- `src/App.css`: Estilos específicos y animaciones
+
+### 4. **Tecnologías y Dependencias**
+- **React 19** + **Vite**: Framework y bundler
+- **TailwindCSS**: Sistema de estilos
+- **Framer Motion**: Animaciones fluidas
+- **SVG**: Gráficos vectoriales del puente
+
+### 5. **Patrones de Código**
+
+#### Componentes React:
+```javascript
+// Usar hooks de React correctamente
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+
+// Estructura de componentes funcionales
+function ComponentName({ prop1, prop2 }) {
+  const [state, setState] = useState(initialValue)
+  
+  useEffect(() => {
+    // Efectos secundarios
+  }, [dependencies])
+  
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      {/* Contenido */}
+    </motion.div>
+  )
+}
+```
+
+#### Estilos con TailwindCSS:
+```javascript
+// Usar clases de TailwindCSS para responsive design
+className="flex flex-col sm:flex-row gap-2 md:gap-4 p-4 md:p-6"
+
+// Colores del tema
+className="bg-emerald-600 hover:bg-emerald-700 text-white"
+className="bridge-green" // Clase personalizada para verde del puente
+```
+
+#### Animaciones con Framer Motion:
+```javascript
+// Animaciones de entrada
+initial={{ opacity: 0, y: -20 }}
+animate={{ opacity: 1, y: 0 }}
+transition={{ duration: 0.5, ease: "easeOut" }}
+
+// Animaciones de hover
+whileHover={{ scale: 1.05 }}
+whileTap={{ scale: 0.95 }}
+```
+
+### 6. **Validación de Errores Comunes**
+
+#### Errores de Sintaxis:
+- Verificar comillas cerradas en JSX
+- Revisar llaves de cierre en objetos y funciones
+- Comprobar imports correctos
+
+#### Errores de Linting:
+```bash
+npm run lint
+```
+
+#### Errores de Build:
+```bash
+npm run build
+```
+
+### 7. **Testing de Funcionalidades**
+
+#### Funcionalidades Críticas a Validar:
+1. **Sistema de Hitos**:
+   - Array `milestones` en App.jsx
+   - Función `addMilestone()` funciona
+   - Progreso se actualiza correctamente
+
+2. **Autoplay**:
+   - `toggleAutoplay()` funciona
+   - Intervalo de 3 segundos entre hitos
+   - Se detiene al llegar al final
+
+3. **Animaciones del Puente**:
+   - Tablones se agregan progresivamente
+   - Cables aparecen con el progreso
+   - Efectos de partículas funcionan
+
+4. **Responsive Design**:
+   - Header se adapta a móviles
+   - Botones son táctiles en móviles
+   - SVG se escala correctamente
+
+### 8. **Comandos de Desarrollo**
+
+```bash
+# Desarrollo
+npm run dev          # Servidor de desarrollo
+npm run build        # Build de producción
+npm run preview      # Preview de la build
+npm run lint         # Verificar linting
+
+# Despliegue
+vercel               # Desplegar en Vercel
+npm run deploy       # Desplegar en GitHub Pages
+```
+
+### 9. **Reglas de Commit y Deploy**
+
+- **Antes de cada commit**: Ejecutar `npm run dev` y validar
+- **Antes de deploy**: Ejecutar `npm run build` y verificar que no hay errores
+- **Documentar cambios**: Actualizar README.md si es necesario
+
+## 🚨 IMPORTANTE PARA EL LLM
+
+**SIEMPRE que hagas cambios en el código**:
+
+1. **Ejecuta `npm run dev`** para verificar que la aplicación funciona
+2. **Revisa la consola** para errores de compilación
+3. **Valida las funcionalidades** principales
+4. **Informa al usuario** sobre el estado de la aplicación
+
+**OBLIGATORIO**: Si encuentras CUALQUIER error:
+- ✅ **NO continúes** hasta arreglarlo
+- ✅ **Arregla el error** inmediatamente
+- ✅ **Verifica** que el arreglo funciona
+- ✅ **Ejecuta** `npm run dev` para confirmar
+
+**No asumas que el código funciona** sin validarlo. La aplicación debe estar ejecutándose correctamente antes de considerar que los cambios están completos.
+
+## 📱 URLs de Validación
+
+- **Desarrollo**: http://localhost:5173/
+- **Build Preview**: http://localhost:4173/ (después de `npm run preview`)
+
+## 🎨 Personalización
+
+### Modificar Hitos:
+Editar array `milestones` en `src/App.jsx`:
+```javascript
+const milestones = [
+  { id: 1, title: "Nuevo hito", description: "Descripción", progress: 0.25 },
+  // ... más hitos
+]
+```
+
+### Cambiar Colores:
+Modificar clases CSS en `src/index.css`:
+- `.bridge-green`: Color principal del puente
+- `.bridge-green-bg`: Fondo verde
+- `.bridge-green-border`: Bordes verdes

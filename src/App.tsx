@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useScroll } from '@/hooks/useScroll';
 import { useSectionNavigation } from '@/hooks/useSectionNavigation';
+import { useScrollSnap } from '@/hooks/useScrollSnap';
 import { sections, projects, experience, education } from '@/data/portfolio';
 import HeroSection from '@/components/sections/HeroSection';
 import AboutSection from '@/components/sections/AboutSection';
@@ -17,6 +18,9 @@ const App: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { currentSection, scrollProgress } = useScroll();
   const { scrollToSection } = useSectionNavigation();
+  
+  // Enable scroll snapping
+  useScrollSnap();
 
   const aboutStats = [
     { number: '5+', label: 'Years Experience' },

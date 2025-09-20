@@ -2,13 +2,13 @@ import { useState, useEffect, useRef } from 'react'
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion'
 import './App.css'
+import Typewriters from './components/Typewriters'
 
 function App() {
   const [currentSection, setCurrentSection] = useState(0)
   const [scrollProgress, setScrollProgress] = useState(0)
   const nameRef = useRef(null)
   const containerRef = useRef(null)
-  const [namePhase, setNamePhase] = useState(0) // 0: Francisco Suarez, 1: Transforming, 2: San Francisco
 
   // Sections data
   const sections = [
@@ -55,20 +55,6 @@ function App() {
       })
       
       setCurrentSection(current)
-      
-      // Name transformation based on scroll
-      if (nameRef.current) {
-        const nameRect = nameRef.current.getBoundingClientRect()
-        const nameProgress = Math.max(0, Math.min(1, (windowHeight - nameRect.top) / windowHeight))
-        
-        if (nameProgress < 0.7) {
-          setNamePhase(0)
-        } else if (nameProgress < 0.9) {
-          setNamePhase(1)
-        } else {
-          setNamePhase(2)
-        }
-      }
     }
 
     window.addEventListener('scroll', handleScroll)
@@ -86,95 +72,6 @@ function App() {
     }
   }
 
-  const renderNameAnimation = () => {
-    const franciscoChars = "Francisco Suarez".split("")
-    const sanFranciscoChars = "San Francisco".split("")
-    
-    return (
-      <div className="name-container">
-        <AnimatePresence mode="wait">
-          {namePhase === 0 && (
-            <motion.div
-              key="francisco"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -50 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="name-text"
-            >
-              {franciscoChars.map((char, index) => (
-                <motion.span
-                  key={`francisco-${index}`}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    duration: 0.5, 
-                    delay: index * 0.05,
-                    ease: "easeOut"
-                  }}
-                  className="char"
-                >
-                  {char === " " ? "\u00A0" : char}
-                </motion.span>
-              ))}
-            </motion.div>
-          )}
-          
-          {namePhase === 1 && (
-            <motion.div
-              key="transforming"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 1.2 }}
-              transition={{ duration: 0.6 }}
-              className="name-text transforming"
-            >
-              <motion.span
-                animate={{ 
-                  rotate: [0, 360],
-                  scale: [1, 1.2, 1]
-                }}
-                transition={{ 
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="transform-icon"
-              >
-                ✨
-              </motion.span>
-            </motion.div>
-          )}
-          
-          {namePhase === 2 && (
-            <motion.div
-              key="sanfrancisco"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="name-text final"
-            >
-              {sanFranciscoChars.map((char, index) => (
-                <motion.span
-                  key={`sanfrancisco-${index}`}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    duration: 0.5, 
-                    delay: index * 0.05,
-                    ease: "easeOut"
-                  }}
-                  className="char"
-                >
-                  {char === " " ? "\u00A0" : char}
-                </motion.span>
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    )
-  }
 
   return (
     <div className="app-container" ref={containerRef}>
@@ -243,7 +140,7 @@ function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.5 }}
             >
-              {renderNameAnimation()}
+              <Typewriters />
             </motion.div>
             
             <motion.p

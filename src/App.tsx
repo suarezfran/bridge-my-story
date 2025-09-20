@@ -27,6 +27,15 @@ const App: React.FC = () => {
   return (
     <div className="app-container" ref={containerRef}>
       <div className="golden-gate-bg">
+        <video
+          className="bg-video"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src="/golden-gate-video.mp4" type="video/mp4" />
+        </video>
         <motion.div 
           className="bg-overlay"
           style={{

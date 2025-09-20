@@ -248,7 +248,7 @@
 
 .hero-subtitle {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  font-size: clamp(0.875rem, 2vw, 1.25rem);
   font-weight: 300;
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 3rem;
@@ -749,18 +749,55 @@
     height: 10px;
   }
   
+  .hero-subtitle {
+    font-size: clamp(0.875rem, 2vw, 1.125rem);
+    margin-bottom: 2.5rem;
+  }
+  
+  .scroll-indicator {
+    margin-top: 1rem;
+  }
+  
+  .scroll-text {
+    font-size: 0.75rem;
+  }
+  
+  .scroll-arrow {
+    font-size: 1.25rem;
+  }
+  
+  .section-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1rem;
+  }
+  
+  .section-description {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    margin-bottom: 2rem;
+  }
+  
   .about-stats {
     grid-template-columns: 1fr;
     gap: 1rem;
+    margin-top: 2rem;
   }
   
   .stat-item {
     padding: 1.5rem;
   }
   
+  .stat-number {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+  }
+  
+  .stat-label {
+    font-size: 0.875rem;
+  }
+  
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+    margin-top: 2rem;
   }
   
   .project-card {
@@ -773,6 +810,14 @@
     gap: 1rem;
   }
   
+  .project-title {
+    font-size: 1.25rem;
+  }
+  
+  .project-description {
+    font-size: 0.875rem;
+  }
+  
   .experience-timeline {
     margin-top: 2rem;
   }
@@ -781,13 +826,26 @@
     padding: 1.5rem;
   }
   
+  .experience-position {
+    font-size: 1.25rem;
+  }
+  
+  .experience-company {
+    font-size: 1rem;
+  }
+  
   .education-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+    margin-top: 2rem;
   }
   
   .education-card {
     padding: 1.5rem;
+  }
+  
+  .education-degree {
+    font-size: 1.125rem;
   }
 }
 
@@ -802,18 +860,32 @@
   
   .hero-subtitle {
     margin-bottom: 2rem;
-  }
-  
-  .name-text {
-    font-size: clamp(2rem, 12vw, 4rem);
+    font-size: clamp(0.75rem, 1.8vw, 1rem);
   }
   
   .progress-indicator {
     scale: 0.9;
+    bottom: 0.75rem;
+    left: 0.75rem;
+    padding: 0.5rem 0.75rem;
   }
   
   .section-nav {
     scale: 0.9;
+    right: 0.75rem;
+  }
+  
+  .section-dot {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .progress-bar {
+    width: 50px;
+  }
+  
+  .progress-text {
+    font-size: 0.75rem;
   }
 }
 

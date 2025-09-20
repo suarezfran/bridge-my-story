@@ -235,6 +235,20 @@ body {
   .text-gradient {
     font-size: 1.5rem;
   }
+  
+  /* Improve touch targets for mobile */
+  .progress-dot {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .progress-dot::before {
+    width: 10px;
+    height: 10px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -245,6 +259,17 @@ body {
   
   .text-gradient {
     font-size: 1.25rem;
+  }
+  
+  /* Smaller touch targets for very small screens */
+  .progress-dot {
+    min-width: 36px;
+    min-height: 36px;
+  }
+  
+  .progress-dot::before {
+    width: 8px;
+    height: 8px;
   }
 }
 

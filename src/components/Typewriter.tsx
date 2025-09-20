@@ -2,7 +2,7 @@ import React from 'react';
 import Typewriter from 'typewriter-effect';
 import './Typewriter.css';
 
-function Typewriters() {
+const TypewriterComponent: React.FC = () => {
   return (
     <div className="container">
       <h1>
@@ -18,6 +18,6 @@ function Typewriters() {
       </h1>
     </div>
   );
-}
+};
 
-export default Typewriters;
+export default TypewriterComponent;

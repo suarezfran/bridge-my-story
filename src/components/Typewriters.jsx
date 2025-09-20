@@ -10,8 +10,9 @@ function Typewriters() {
           options={{
             autoStart: true,
             loop: true,
-            delay: 50,
-            strings: ["Francisco Suarez", "San Francisco"] // <-- multiple strings here
+            delay: 40,
+            deleteSpeed: 40,
+            strings: ["Francisco Suárez", "San Francisco"]
           }}
         />
       </h1>

@@ -70,9 +70,6 @@ export interface ScrollState {
   scrollProgress: number;
 }
 
-export interface AnimationVariants {
-  initial: any;
-  animate: any;
-  exit?: any;
-  transition?: any;
-}
+import { Variants } from 'framer-motion';
+
+export type AnimationVariants = Variants;

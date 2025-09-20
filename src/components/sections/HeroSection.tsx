@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { fadeInUp, staggerContainer, staggerItem } from '@/utils/animations';
+import { staggerContainer, staggerItem } from '@/utils/animations';
 import TypewriterComponent from '@/components/Typewriter';
 
 const HeroSection: React.FC = () => {

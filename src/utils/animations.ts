@@ -2,20 +2,29 @@ import { AnimationVariants } from '@/types';
 
 export const fadeInUp: AnimationVariants = {
   initial: { opacity: 0, y: 60 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: 'easeOut' }
+  animate: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.6, ease: 'easeOut' }
+  }
 };
 
 export const fadeInLeft: AnimationVariants = {
   initial: { opacity: 0, x: -60 },
-  animate: { opacity: 1, x: 0 },
-  transition: { duration: 0.6, ease: 'easeOut' }
+  animate: { 
+    opacity: 1, 
+    x: 0,
+    transition: { duration: 0.6, ease: 'easeOut' }
+  }
 };
 
 export const fadeInRight: AnimationVariants = {
   initial: { opacity: 0, x: 60 },
-  animate: { opacity: 1, x: 0 },
-  transition: { duration: 0.6, ease: 'easeOut' }
+  animate: { 
+    opacity: 1, 
+    x: 0,
+    transition: { duration: 0.6, ease: 'easeOut' }
+  }
 };
 
 export const staggerContainer: AnimationVariants = {
@@ -29,8 +38,11 @@ export const staggerContainer: AnimationVariants = {
 
 export const staggerItem: AnimationVariants = {
   initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 }
+  animate: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.5 }
+  }
 };
 
 export const hoverScale = {

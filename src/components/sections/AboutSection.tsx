@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { fadeInUp, staggerContainer, staggerItem } from '@/utils/animations';
+import { staggerContainer, staggerItem } from '@/utils/animations';
 import { StatItem } from '@/types';
 
 interface AboutSectionProps {
@@ -31,9 +31,9 @@ const AboutSection: React.FC<AboutSectionProps> = ({ stats }) => {
           className="section-description"
           variants={staggerItem}
         >
-          Passionate software engineer from Uruguay with a dream to make an impact 
-          in San Francisco's tech ecosystem. I specialize in full-stack development 
-          and love creating innovative solutions that solve real-world problems.
+          Passionate and committed engineer from Uruguay with a dream to make an impact 
+          in San Francisco's tech ecosystem. Experienced in tackling complex challenges, 
+          optimizing processes, and building scalable, impactful systems.
         </motion.p>
         
         <motion.div 

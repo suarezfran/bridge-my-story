@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useScroll } from '@/hooks/useScroll';
 import { useSectionNavigation } from '@/hooks/useSectionNavigation';
 import { useScrollSnap } from '@/hooks/useScrollSnap';
-import { projects, experience, education } from '@/data/portfolio';
+import { projects, experience, education, achievements } from '@/data/portfolio';
 import HeroSection from '@/components/sections/HeroSection';
 import AboutSection from '@/components/sections/AboutSection';
 import ProjectsSection from '@/components/sections/ProjectsSection';
@@ -62,7 +62,7 @@ const App: React.FC = () => {
 
         <ProjectsSection projects={projects} />
         
-        <EducationSection education={education} />
+        <EducationSection education={education} achievements={achievements} />
         
         <ContactSection />
       </div>

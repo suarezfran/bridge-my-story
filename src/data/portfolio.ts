@@ -117,17 +117,10 @@ export const skills: Skill[] = [
 export const achievements: Achievement[] = [
   {
     id: 'ach-1',
-    title: 'Best Developer Award',
-    description: 'Recognized for outstanding contribution to team projects',
-    date: '2023-12',
-    category: 'award'
-  },
-  {
-    id: 'ach-2',
-    title: 'AWS Certified Solutions Architect',
-    description: 'Professional certification in cloud architecture',
-    date: '2021-06',
-    category: 'certification'
+    title: 'ICPC Regional Latin America Competitor',
+    description: 'Selected to represent Universidad ORT Uruguay in a three-member team at the ICPC Regional Latin America, an inter-university programming contest focused on algorithmic and mathematical problem solving, aiming to qualify for the America Programmers\' Cup.',
+    date: '2025',
+    category: 'recognition'
   }
 ];
 

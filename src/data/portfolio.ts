@@ -19,6 +19,14 @@ export const projects: Project[] = [
     inProgress: false
   },
   {
+    id: 'elasticsearch-support',
+    title: 'Elasticsearch Support for Analytics Module',
+    description: 'Integrated Elasticsearch into a high-throughput analytics module to enable near-real-time search, aggregation, and observability across millions of transactions per day.',
+    technologies: ['Elasticsearch', 'Java', 'Spring Boot', 'RabbitMQ', 'Docker', 'Kibana'],
+    featured: true,
+    inProgress: false,
+  },
+  {
     id: 'retail-brain',
     title: 'Retail Brain',
     description: 'Retail sales data analysis system with semantic search and market behavior analysis.',
@@ -28,14 +36,23 @@ export const projects: Project[] = [
     inProgress: true
   },
   {
-    id: 'retail-brain',
-    title: 'Retail Brain',
-    description: 'Retail sales data analysis system with semantic search and trend detection capabilities.',
-    technologies: ['Go', 'PostgreSQL', 'Docker', 'OpenAI API'],
-    githubUrl: 'https://github.com/suarezfran/retail-brain',
+    id: 'plus-edu',
+    title: 'Mas Edu',
+    description: 'Educational consulting platform showcasing innovative solutions for institutional management, teacher training, and school improvement.',
+    technologies: ['Astro', 'TypeScript', 'Tailwind CSS'],
+    githubUrl: 'https://github.com/suarezfran/plus-edu',
     featured: true,
-    inProgress: true
+    inProgress: false
+  },
+  {
+    id: 'vulnerability-report-bot',
+    title: 'Vulnerability Report Bot',
+    description: 'Automated bot that scans container images from Harbor with Trivy, aggregates linter findings, and generates actionable vulnerability reports and suggested code fixes using the OpenAI API.',
+    technologies: ['Java', 'Spring Boot', 'Harbor API', 'OpenAI API', 'Sonar'],
+    featured: true,
+    inProgress: false
   }
+  
 ];
 
 export const experience: Experience[] = [

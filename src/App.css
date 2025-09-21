@@ -311,7 +311,7 @@
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 600;
   color: white;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.25rem;
   letter-spacing: -0.02em;
 }
 
@@ -328,7 +328,7 @@
   font-weight: 300;
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.6;
-  margin-bottom: 3rem;
+  margin-bottom: 0.75rem;
 }
 
 /* Journey Stats */
@@ -404,7 +404,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
-  margin-top: 3rem;
+  margin-top: 0.75rem;
 }
 
 .project-card {
@@ -796,12 +796,12 @@
   
   .section-title {
     font-size: clamp(2rem, 5vw, 3rem);
-    margin-bottom: 1rem;
+    margin-bottom: 0.25rem;
   }
   
   .section-description {
     font-size: clamp(1rem, 2vw, 1.125rem);
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
   }
   
   .about-stats {
@@ -825,7 +825,7 @@
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    margin-top: 2rem;
+    margin-top: 0.5rem;
   }
   
   .project-card {

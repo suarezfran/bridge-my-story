@@ -10,29 +10,15 @@ export const useScrollSnap = () => {
                      ('ontouchstart' in window) || 
                      (navigator.maxTouchPoints > 0);
     
-    // Only enable scroll snapping on desktop devices
+    // Only enable proximity scroll snapping on desktop devices
     if (isMobile) {
       return;
     }
-    const handleScroll = () => {
-      if (isScrolling.current) return;
-      
-      isScrolling.current = true;
-      
-      // Clear existing timeout
-      if (scrollTimeout.current) {
-        clearTimeout(scrollTimeout.current);
-      }
-      
-      // Set timeout to detect when scrolling stops
-      scrollTimeout.current = setTimeout(() => {
-        snapToNearestSection();
-        isScrolling.current = false;
-      }, 150);
-    };
 
     const snapToNearestSection = () => {
       const sections = document.querySelectorAll('.scroll-section');
+      if (sections.length === 0) return;
+      
       const windowHeight = window.innerHeight;
       const scrollTop = window.pageYOffset;
       
@@ -50,64 +36,40 @@ export const useScrollSnap = () => {
         }
       });
       
-      if (closestSection && closestDistance > windowHeight * 0.1) {
-        // Only snap if we're not already close to a section
-        closestSection.scrollIntoView({ 
-          behavior: 'smooth', 
-          block: 'start' 
+      // Only snap if we're close to a section (within 15% of viewport height)
+      // This creates a more noticeable "magnetic" effect for better section alignment
+      if (closestSection && closestDistance < windowHeight * 0.15) {
+        const targetTop = closestSection.offsetTop;
+        window.scrollTo({
+          top: targetTop,
+          behavior: 'smooth'
         });
       }
     };
 
-    // Add wheel event listener for more precise control
-    const handleWheel = (e: WheelEvent) => {
-      e.preventDefault();
+    // Very gentle scroll handler - only activates when scrolling stops
+    const handleScroll = () => {
+      if (isScrolling.current) return;
       
-      const sections = document.querySelectorAll('.scroll-section');
-      const currentScroll = window.pageYOffset;
-      const windowHeight = window.innerHeight;
+      isScrolling.current = true;
       
-      let targetSection = null;
-      
-      if (e.deltaY > 0) {
-        // Scrolling down
-        for (let i = 0; i < sections.length; i++) {
-          const section = sections[i] as HTMLElement;
-          const sectionTop = section.offsetTop;
-          
-          if (sectionTop > currentScroll + windowHeight * 0.1) {
-            targetSection = section;
-            break;
-          }
-        }
-      } else {
-        // Scrolling up
-        for (let i = sections.length - 1; i >= 0; i--) {
-          const section = sections[i] as HTMLElement;
-          const sectionTop = section.offsetTop;
-          
-          if (sectionTop < currentScroll - windowHeight * 0.1) {
-            targetSection = section;
-            break;
-          }
-        }
+      // Clear existing timeout
+      if (scrollTimeout.current) {
+        clearTimeout(scrollTimeout.current);
       }
       
-      if (targetSection) {
-        targetSection.scrollIntoView({ 
-          behavior: 'smooth', 
-          block: 'start' 
-        });
-      }
+      // Set timeout to detect when scrolling stops - balanced delay for responsiveness
+      scrollTimeout.current = setTimeout(() => {
+        snapToNearestSection();
+        isScrolling.current = false;
+      }, 200); // Balanced timeout for good responsiveness without interference
     };
 
-    // Add event listeners
+    // Add only scroll event listener - no wheel interference
     window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('wheel', handleWheel, { passive: false });
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('wheel', handleWheel);
       if (scrollTimeout.current) {
         clearTimeout(scrollTimeout.current);
       }

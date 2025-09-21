@@ -5,8 +5,22 @@ import './Typewriter.css';
 const TypewriterComponent: React.FC = () => {
   const [secondaryText, setSecondaryText] = useState('Why must');
   const [isVisible, setIsVisible] = useState(true);
+  const [isSafari, setIsSafari] = useState(false);
 
   useEffect(() => {
+    // Detect Safari and Chrome browsers
+    const userAgent = navigator.userAgent;
+    const isSafariBrowser = /^((?!chrome|android).)*safari/i.test(userAgent);
+    const isChromeBrowser = /chrome/i.test(userAgent) && !/edge/i.test(userAgent);
+    
+    // Test if background-clip: text is supported
+    const testElement = document.createElement('div');
+    testElement.style.backgroundClip = 'text';
+    const supportsBackgroundClip = testElement.style.backgroundClip === 'text';
+    
+    // Apply fallback for Safari or if background-clip: text is not supported
+    setIsSafari(isSafariBrowser || isChromeBrowser || !supportsBackgroundClip);
+
     const interval = setInterval(() => {
       setIsVisible(false);
       
@@ -25,7 +39,7 @@ const TypewriterComponent: React.FC = () => {
       <div className={`secondary-text ${isVisible ? 'fade-in' : 'fade-out'}`}>
         {secondaryText}
       </div>
-      <h1>
+      <h1 className={isSafari ? 'text-fallback' : ''}>
         <Typewriter
           options={{
             autoStart: true,

@@ -15,6 +15,14 @@
   font-family: 'Inter', sans-serif;
 }
 
+/* Ensure smooth scrolling on mobile */
+@media (max-width: 768px) {
+  .app-container {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+}
+
 /* Golden Gate Bridge Background */
 .golden-gate-bg {
   position: fixed;
@@ -146,6 +154,13 @@
 .scroll-content {
   position: relative;
   z-index: 10;
+}
+
+/* Ensure smooth scrolling on mobile */
+@media (max-width: 768px) {
+  .scroll-content {
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 /* Scroll Sections */
@@ -491,6 +506,20 @@
   display: flex;
   gap: 12px;
   z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .carousel-dots {
+    bottom: -50px;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-dots {
+    bottom: -45px;
+    gap: 8px;
+  }
 }
 
 .carousel-dot {
@@ -1020,7 +1049,7 @@
   }
   
   .scroll-text {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
   }
   
   .scroll-arrow {
@@ -1035,16 +1064,25 @@
   .section-description {
     font-size: clamp(1rem, 2vw, 1.125rem);
     margin-bottom: 0.5rem;
+    line-height: 1.6;
+    padding: 0 1rem;
   }
   
   .about-content-wrapper {
     grid-template-columns: 1fr;
     gap: 2rem;
     margin-top: 1.5rem;
+    padding: 0 1rem;
   }
   
   .about-text {
     text-align: center;
+    order: 2;
+  }
+  
+  .about-image-container {
+    order: 1;
+    margin-bottom: 2rem;
   }
   
   .about-image {
@@ -1052,7 +1090,9 @@
   }
   
   .carousel-container {
-    height: 400px;
+    height: 350px;
+    max-width: 100%;
+    margin-bottom: 2rem;
   }
   
   
@@ -1161,6 +1201,15 @@
     padding: 1rem;
   }
   
+  .hero-section {
+    padding: 0.5rem;
+  }
+  
+  .hero-content {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+  
   .hero-name {
     margin-bottom: 1rem;
   }
@@ -1173,6 +1222,17 @@
   .about-content-wrapper {
     gap: 1.5rem;
     margin-top: 1rem;
+    padding: 0 0.5rem;
+  }
+  
+  .about-text {
+    order: 2;
+    text-align: center;
+  }
+  
+  .about-image-container {
+    order: 1;
+    margin-bottom: 1.5rem;
   }
   
   .about-image {
@@ -1180,7 +1240,9 @@
   }
   
   .carousel-container {
-    height: 300px;
+    height: 280px;
+    max-width: 100%;
+    margin-bottom: 1.5rem;
   }
   
   
@@ -1207,6 +1269,10 @@
   
   .progress-text {
     font-size: 0.75rem;
+  }
+  
+  .scroll-text {
+    font-size: 0.6rem;
   }
 }
 

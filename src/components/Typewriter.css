@@ -54,6 +54,8 @@
     #dc2626 100%
   );
   background-size: 200% 200%;
+  
+  /* Enhanced browser compatibility for text gradients */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -90,6 +92,35 @@
   animation-duration: 2s;
   text-shadow: 0 0 100px rgba(220, 38, 38, 0.8);
   filter: drop-shadow(0 0 30px rgba(239, 68, 68, 0.5));
+}
+
+/* Fallback class for browsers with background-clip: text issues */
+.container h1.text-fallback {
+  /* Use solid color with subtle glow to match other browsers */
+  color: #dc2626 !important;
+  background: none !important;
+  -webkit-text-fill-color: #dc2626 !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  text-shadow: 
+    0 0 20px rgba(220, 38, 38, 0.4),
+    0 0 40px rgba(239, 68, 68, 0.3);
+  filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.3));
+  animation: textGlow 4s ease-in-out infinite;
+}
+
+/* Text glow animation for fallback browsers */
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow: 
+      0 0 20px rgba(220, 38, 38, 0.4),
+      0 0 40px rgba(239, 68, 68, 0.3);
+  }
+  50% {
+    text-shadow: 
+      0 0 30px rgba(220, 38, 38, 0.6),
+      0 0 60px rgba(239, 68, 68, 0.4);
+  }
 }
 
 /* Responsive design with improved scaling */

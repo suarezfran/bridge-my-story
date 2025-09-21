@@ -3,6 +3,8 @@ import { useEffect, useRef } from 'react';
 export const useScrollSnap = () => {
   const isScrolling = useRef(false);
   const scrollTimeout = useRef<NodeJS.Timeout>();
+  const lastWheelTime = useRef(0);
+  const wheelTimeout = useRef<NodeJS.Timeout>();
 
   useEffect(() => {
     // Detect if device is mobile/touch device
@@ -14,25 +16,11 @@ export const useScrollSnap = () => {
     if (isMobile) {
       return;
     }
-    const handleScroll = () => {
-      if (isScrolling.current) return;
-      
-      isScrolling.current = true;
-      
-      // Clear existing timeout
-      if (scrollTimeout.current) {
-        clearTimeout(scrollTimeout.current);
-      }
-      
-      // Set timeout to detect when scrolling stops
-      scrollTimeout.current = setTimeout(() => {
-        snapToNearestSection();
-        isScrolling.current = false;
-      }, 150);
-    };
 
     const snapToNearestSection = () => {
       const sections = document.querySelectorAll('.scroll-section');
+      if (sections.length === 0) return;
+      
       const windowHeight = window.innerHeight;
       const scrollTop = window.pageYOffset;
       
@@ -50,8 +38,8 @@ export const useScrollSnap = () => {
         }
       });
       
-      if (closestSection && closestDistance > windowHeight * 0.1) {
-        // Only snap if we're not already close to a section
+      // Only snap if we're not already close to a section (within 15% of viewport height)
+      if (closestSection && closestDistance > windowHeight * 0.15) {
         closestSection.scrollIntoView({ 
           behavior: 'smooth', 
           block: 'start' 
@@ -59,49 +47,85 @@ export const useScrollSnap = () => {
       }
     };
 
-    // Add wheel event listener for more precise control
-    const handleWheel = (e: WheelEvent) => {
-      e.preventDefault();
+    // Optimized scroll handler with better throttling
+    const handleScroll = () => {
+      if (isScrolling.current) return;
       
-      const sections = document.querySelectorAll('.scroll-section');
-      const currentScroll = window.pageYOffset;
-      const windowHeight = window.innerHeight;
+      isScrolling.current = true;
       
-      let targetSection = null;
-      
-      if (e.deltaY > 0) {
-        // Scrolling down
-        for (let i = 0; i < sections.length; i++) {
-          const section = sections[i] as HTMLElement;
-          const sectionTop = section.offsetTop;
-          
-          if (sectionTop > currentScroll + windowHeight * 0.1) {
-            targetSection = section;
-            break;
-          }
-        }
-      } else {
-        // Scrolling up
-        for (let i = sections.length - 1; i >= 0; i--) {
-          const section = sections[i] as HTMLElement;
-          const sectionTop = section.offsetTop;
-          
-          if (sectionTop < currentScroll - windowHeight * 0.1) {
-            targetSection = section;
-            break;
-          }
-        }
+      // Clear existing timeout
+      if (scrollTimeout.current) {
+        clearTimeout(scrollTimeout.current);
       }
       
-      if (targetSection) {
-        targetSection.scrollIntoView({ 
-          behavior: 'smooth', 
-          block: 'start' 
-        });
+      // Set timeout to detect when scrolling stops
+      scrollTimeout.current = setTimeout(() => {
+        snapToNearestSection();
+        isScrolling.current = false;
+      }, 120); // Optimized timeout
+    };
+
+    // Optimized wheel handler with better performance
+    const handleWheel = (e: WheelEvent) => {
+      const now = Date.now();
+      
+      // Debounce wheel events
+      if (now - lastWheelTime.current < 80) {
+        return;
+      }
+      lastWheelTime.current = now;
+
+      // Clear existing wheel timeout
+      if (wheelTimeout.current) {
+        clearTimeout(wheelTimeout.current);
+      }
+
+      // Only prevent default for significant wheel movements
+      if (Math.abs(e.deltaY) > 40) {
+        e.preventDefault();
+        
+        const sections = document.querySelectorAll('.scroll-section');
+        if (sections.length === 0) return;
+        
+        const currentScroll = window.pageYOffset;
+        const windowHeight = window.innerHeight;
+        
+        let targetSection = null;
+        
+        if (e.deltaY > 0) {
+          // Scrolling down
+          for (let i = 0; i < sections.length; i++) {
+            const section = sections[i] as HTMLElement;
+            const sectionTop = section.offsetTop;
+            
+            if (sectionTop > currentScroll + windowHeight * 0.2) {
+              targetSection = section;
+              break;
+            }
+          }
+        } else {
+          // Scrolling up
+          for (let i = sections.length - 1; i >= 0; i--) {
+            const section = sections[i] as HTMLElement;
+            const sectionTop = section.offsetTop;
+            
+            if (sectionTop < currentScroll - windowHeight * 0.2) {
+              targetSection = section;
+              break;
+            }
+          }
+        }
+        
+        if (targetSection) {
+          targetSection.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          });
+        }
       }
     };
 
-    // Add event listeners
+    // Add event listeners with optimized options
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('wheel', handleWheel, { passive: false });
 
@@ -110,6 +134,9 @@ export const useScrollSnap = () => {
       window.removeEventListener('wheel', handleWheel);
       if (scrollTimeout.current) {
         clearTimeout(scrollTimeout.current);
+      }
+      if (wheelTimeout.current) {
+        clearTimeout(wheelTimeout.current);
       }
     };
   }, []);

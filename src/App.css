@@ -1281,9 +1281,20 @@
   will-change: transform;
 }
 
-/* Smooth scrolling enhancement */
+/* Enhanced scroll performance */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 0;
+}
+
+/* Optimize scroll sections for better performance */
+.scroll-section {
+  transform: translateZ(0); /* Force hardware acceleration */
+}
+
+/* Optimize video performance */
+.bg-video {
+  will-change: transform;
 }
 
 /* Custom scrollbar */

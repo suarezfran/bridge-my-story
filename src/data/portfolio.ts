@@ -3,28 +3,38 @@ import { Project, Experience, Education, Skill, Achievement, ContactInfo } from 
 
 export const projects: Project[] = [
   {
-    id: 'project-1',
-    title: 'E-Commerce Platform',
-    description: 'Full-stack e-commerce solution with modern UI/UX',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-    githubUrl: 'https://github.com/username/project1',
-    liveUrl: 'https://project1.com',
+    id: 'tkn-project',
+    title: 'Tokenization Platform',
+    description: 'Secure microservice for merchant tokenization, handling sensitive payment data with encryption, batch processing, and vault integration.',
+    technologies: ['Java', 'Spring Framework', 'MySQL', 'Angular', 'Spring Batch', 'Docker'],
     featured: true
   },
   {
-    id: 'project-2',
-    title: 'AI Chat Application',
-    description: 'Real-time chat application with AI integration',
-    technologies: ['React', 'Socket.io', 'OpenAI API', 'PostgreSQL'],
-    githubUrl: 'https://github.com/username/project2',
-    featured: true
+    id: 'bridge-my-story',
+    title: 'Bridge My Story',
+    description: 'Portfolio created for Puentes Cohort #2, showcasing my projects and skills as part of a Silicon Valley immersion program connecting Latin American engineers with startup opportunities.',
+    technologies: ['React', 'TypeScript', 'Vite', 'Framer Motion'],
+    githubUrl: 'https://github.com/suarezfran/bridge-my-story',
+    featured: true,
+    inProgress: false
   },
   {
-    id: 'project-3',
-    title: 'Mobile Banking App',
-    description: 'Secure mobile banking application',
-    technologies: ['React Native', 'Express', 'MySQL', 'JWT'],
-    githubUrl: 'https://github.com/username/project3'
+    id: 'retail-brain',
+    title: 'Retail Brain',
+    description: 'Retail sales data analysis system with semantic search and market behavior analysis.',
+    technologies: ['Go', 'PostgreSQL', 'Docker', 'OpenAI API'],
+    githubUrl: 'https://github.com/suarezfran/retail-brain',
+    featured: true,
+    inProgress: true
+  },
+  {
+    id: 'retail-brain',
+    title: 'Retail Brain',
+    description: 'Retail sales data analysis system with semantic search and trend detection capabilities.',
+    technologies: ['Go', 'PostgreSQL', 'Docker', 'OpenAI API'],
+    githubUrl: 'https://github.com/suarezfran/retail-brain',
+    featured: true,
+    inProgress: true
   }
 ];
 

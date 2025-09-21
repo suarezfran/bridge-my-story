@@ -60,9 +60,9 @@ const App: React.FC = () => {
         
         <AboutSection stats={aboutStats} />
         
-        <ProjectsSection projects={projects} />
-        
         <ExperienceSection experience={experience} />
+
+        <ProjectsSection projects={projects} />
         
         <EducationSection education={education} />
         

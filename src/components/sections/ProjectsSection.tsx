@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { fadeInUp, staggerContainer, staggerItem, hoverLift } from '@/utils/animations';
+import { staggerContainer, staggerItem, hoverLift } from '@/utils/animations';
 import { Project } from '@/types';
 
 interface ProjectsSectionProps {
@@ -47,15 +47,22 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
               whileHover={{ scale: 1.02 }}
             >
               <div className="project-header">
-                <h3 className="project-title">{project.title}</h3>
+                <div className="project-title-row">
+                  <h3 className="project-title">{project.title}</h3>
+                  {project.inProgress && (
+                    <span className="project-status in-progress">
+                      In Progress
+                    </span>
+                  )}
+                </div>
                 <div className="project-links">
                   {project.githubUrl && (
-                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="project-github-link">
                       GitHub
                     </a>
                   )}
                   {project.liveUrl && (
-                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="project-live-link">
                       Live Demo
                     </a>
                   )}

@@ -12,6 +12,7 @@ export interface Project {
   liveUrl?: string;
   imageUrl?: string;
   featured?: boolean;
+  inProgress?: boolean;
 }
 
 export interface Experience {

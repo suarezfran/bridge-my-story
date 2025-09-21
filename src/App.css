@@ -425,8 +425,52 @@
 .project-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 1rem;
+}
+
+.project-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.project-status {
+  font-size: 0.65rem;
+  font-weight: 500;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.project-status.in-progress {
+  background: rgba(6, 182, 212, 0.15);
+  color: #06b6d4;
+  border: 1px solid rgba(6, 182, 212, 0.25);
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.project-github-link,
+.project-live-link {
+  color: #dc2626;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.project-github-link:hover,
+.project-live-link:hover {
+  color: #ef4444;
 }
 
 .project-title {
@@ -437,22 +481,6 @@
   margin: 0;
 }
 
-.project-links {
-  display: flex;
-  gap: 1rem;
-}
-
-.project-links a {
-  color: #dc2626;
-  text-decoration: none;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.project-links a:hover {
-  color: #ef4444;
-}
 
 .project-description {
   font-family: 'Inter', sans-serif;
@@ -808,6 +836,15 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+  }
+  
+  .project-title-row {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .project-links {
+    align-self: flex-start;
   }
   
   .project-title {

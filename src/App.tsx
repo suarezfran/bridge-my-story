@@ -21,11 +21,6 @@ const App: React.FC = () => {
   // Enable scroll snapping
   useScrollSnap();
 
-  const aboutStats = [
-    { number: '5+', label: 'Years Experience' },
-    { number: '20+', label: 'Projects Completed' },
-    { number: '∞', label: 'Dreams' }
-  ];
 
   return (
     <div className="app-container" ref={containerRef}>
@@ -56,7 +51,7 @@ const App: React.FC = () => {
       <div className="scroll-content">
         <HeroSection />
         
-        <AboutSection stats={aboutStats} />
+        <AboutSection />
         
         <ExperienceSection experience={experience} />
 

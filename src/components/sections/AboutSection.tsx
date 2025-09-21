@@ -1,13 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { staggerContainer, staggerItem } from '@/utils/animations';
-import { StatItem } from '@/types';
+import CardCarousel from '@/components/CardCarousel';
 
-interface AboutSectionProps {
-  stats: StatItem[];
-}
+const AboutSection: React.FC = () => {
+  // Your personal photos for the carousel
+  const personalImages = [
+    '/tree-photo.jpeg',
+    '/pl-photo.jpeg',
+    '/yt-photo.jpeg', 
+    '/gg-mine.jpeg'
+  ];
 
-const AboutSection: React.FC<AboutSectionProps> = ({ stats }) => {
   return (
     <motion.section 
       className="scroll-section about-section"
@@ -27,32 +31,36 @@ const AboutSection: React.FC<AboutSectionProps> = ({ stats }) => {
           About Me
         </motion.h2>
         
-        <motion.p 
-          className="section-description"
-          variants={staggerItem}
-        >
-          Passionate and committed engineer from Uruguay with a dream to make an impact 
-          in San Francisco's tech ecosystem. Experienced in tackling complex challenges, 
-          optimizing processes, and building scalable, impactful systems.
-        </motion.p>
-        
         <motion.div 
-          className="about-stats"
+          className="about-content-wrapper"
           variants={staggerItem}
         >
-          {stats.map((stat) => (
-            <motion.div 
-              key={stat.label}
-              className="stat-item"
+          <motion.div 
+            className="about-image-container"
+            variants={staggerItem}
+          >
+            <CardCarousel 
+              images={personalImages}
+              autoPlay={true}
+              autoPlayInterval={4000}
+            />
+          </motion.div>
+          
+          <motion.div 
+            className="about-text"
+            variants={staggerItem}
+          >
+            <motion.p 
+              className="section-description"
               variants={staggerItem}
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.2 }}
             >
-              <div className="stat-number">{stat.number}</div>
-              <div className="stat-label">{stat.label}</div>
-            </motion.div>
-          ))}
+              Passionate and committed engineer from Uruguay with a dream to make an impact 
+              in San Francisco's tech ecosystem. Experienced in tackling complex challenges, 
+              optimizing processes, and building scalable, impactful systems.
+            </motion.p>
+          </motion.div>
         </motion.div>
+        
       </motion.div>
     </motion.section>
   );

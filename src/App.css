@@ -402,9 +402,10 @@
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
   margin-top: 0.75rem;
+  max-width: 100%;
 }
 
 .project-card {
@@ -412,9 +413,12 @@
   backdrop-filter: blur(10px);
   border-radius: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 2rem;
+  padding: 1.5rem;
   text-align: left;
   transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-card:hover {
@@ -484,10 +488,11 @@
 
 .project-description {
   font-family: 'Inter', sans-serif;
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.8);
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
 }
 
 .project-technologies {
@@ -518,7 +523,10 @@
 }
 
 .experience-timeline {
-  margin-top: 3rem;
+  margin-top: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .experience-item {
@@ -526,8 +534,8 @@
   backdrop-filter: blur(10px);
   border-radius: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 2rem;
-  margin-bottom: 2rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
   text-align: left;
   transition: all 0.3s ease;
 }
@@ -573,15 +581,15 @@
 .experience-description {
   list-style: none;
   padding: 0;
-  margin: 1rem 0 1.5rem 0;
+  margin: 1rem 0 0 0;
 }
 
 .experience-description li {
   font-family: 'Inter', sans-serif;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.8);
-  line-height: 1.6;
-  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  margin-bottom: 0.4rem;
   padding-left: 1rem;
   position: relative;
 }
@@ -756,6 +764,13 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+}
+
 @media (max-width: 768px) {
   .progress-indicator {
     bottom: 1rem;
@@ -824,12 +839,12 @@
   
   .projects-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.25rem;
     margin-top: 0.5rem;
   }
   
   .project-card {
-    padding: 1.5rem;
+    padding: 1.25rem;
   }
   
   .project-header {
@@ -856,11 +871,12 @@
   }
   
   .experience-timeline {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
   }
   
   .experience-item {
-    padding: 1.5rem;
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
   }
   
   .experience-position {

@@ -1,104 +1,172 @@
 # Bridge My Story 🌉
 
-Una micro-web de una sola página que muestra un puente animado entre Montevideo y San Francisco. Cada hito de tu historia agrega un tablón al puente y el progreso avanza hasta llegar a San Francisco.
+A modern, responsive portfolio website showcasing Francisco Suarez's journey from Montevideo to San Francisco. Built with React, TypeScript, and modern web technologies.
 
-## ✨ Características
+## ✨ Features
 
-- **Puente animado**: SVG con curva del deck, cables y torres
-- **Siluetas de ciudades**: Montevideo y San Francisco
-- **Sistema de hitos**: Cada hito agrega tablones al puente
-- **Animaciones fluidas**: Framer Motion para transiciones suaves
-- **Autoplay**: Modo demo para grabar videos
-- **Diseño responsive**: Optimizado para móviles y desktop
-- **Tema dark**: Colores verdes sobre fondo oscuro
+- **Modern Portfolio Design**: Clean, professional layout with smooth animations
+- **Responsive Layout**: Optimized for mobile, tablet, and desktop devices
+- **Interactive Sections**: Hero, About, Experience, Projects, Education, and Contact
+- **Smooth Scrolling**: Desktop scroll snapping with natural mobile scrolling
+- **Image Carousel**: Interactive photo gallery in the About section
+- **Typewriter Effect**: Dynamic title animation with "Francisco Suarez" / "San Francisco"
+- **Particle Effects**: Subtle background animations for visual appeal
+- **Dark Theme**: Modern dark design with red/orange accent colors
 
-## 🚀 Tecnologías
+## 🚀 Technologies
 
-- **React 19** + **Vite**
-- **TailwindCSS** para estilos
-- **Framer Motion** para animaciones
-- **SVG** para gráficos vectoriales
+- **React 19** + **TypeScript** + **Vite**
+- **TailwindCSS** for styling
+- **Framer Motion** for animations
+- **Typewriter Effect** for dynamic text
+- **Modern CSS** with custom properties and animations
 
-## 📦 Instalación
+## 📦 Installation
 
 ```bash
-# Instalar dependencias
+# Install dependencies
 npm install
 
-# Ejecutar en desarrollo
+# Run development server
 npm run dev
 
-# Construir para producción
+# Build for production
 npm run build
 
-# Preview de la build
+# Preview production build
 npm run preview
+
+# Run linting
+npm run lint
 ```
 
-## 🎮 Uso
+## 🎮 Usage
 
-1. **Siguiente Hito**: Avanza manualmente al siguiente hito
-2. **Autoplay**: Reproduce automáticamente todos los hitos (ideal para grabar videos)
-3. **Progreso**: Barra de progreso en la parte inferior
+1. **Navigation**: Use the section dots on the right to jump between sections
+2. **Scrolling**: 
+   - **Desktop**: Smooth scroll snapping between sections
+   - **Mobile**: Natural scrolling with momentum
+3. **Interactive Elements**: Hover effects and smooth transitions throughout
 
-## 🌐 Despliegue
+## 🌐 Deployment
 
-### Vercel (Recomendado)
+### Vercel (Recommended)
 ```bash
-# Instalar Vercel CLI
+# Install Vercel CLI
 npm i -g vercel
 
-# Desplegar
+# Deploy
 vercel
 ```
 
 ### GitHub Pages
 ```bash
-# Instalar gh-pages
+# Install gh-pages
 npm install --save-dev gh-pages
 
-# Agregar script al package.json
-"homepage": "https://tu-usuario.github.io/bridge-my-story",
+# Add script to package.json
+"homepage": "https://your-username.github.io/bridge-my-story",
 "scripts": {
   "predeploy": "npm run build",
   "deploy": "gh-pages -d dist"
 }
 
-# Desplegar
+# Deploy
 npm run deploy
 ```
 
-## 🎨 Personalización
+## 🎨 Customization
 
-### Modificar hitos
-Edita el array `milestones` en `src/App.jsx`:
+### Modify Portfolio Data
+Edit the data in `src/data/portfolio.ts`:
 
-```javascript
-const milestones = [
-  { id: 1, title: "Tu hito", description: "Descripción", progress: 0.25 },
-  // ... más hitos
+```typescript
+export const projects = [
+  {
+    id: 1,
+    title: "Your Project",
+    description: "Project description",
+    technologies: ["React", "TypeScript"],
+    githubUrl: "https://github.com/your-username/project",
+    liveUrl: "https://your-project.com",
+    status: "completed"
+  }
+  // ... more projects
 ]
 ```
 
-### Cambiar colores
-Modifica las clases CSS en `src/index.css`:
-- `.bridge-green`: Color principal del puente
-- `.bridge-green-bg`: Fondo verde
-- `.bridge-green-border`: Bordes verdes
+### Update Personal Information
+Modify the content in the respective section components:
+- `src/components/sections/AboutSection.tsx`
+- `src/components/sections/ExperienceSection.tsx`
+- `src/components/sections/ContactSection.tsx`
 
-## 📱 Responsive
+### Change Colors and Styling
+Update CSS custom properties in `src/index.css`:
+- `--primary-red`: Main red color
+- `--secondary-red`: Secondary red color
+- `--accent-orange`: Orange accent color
 
-La aplicación está optimizada para:
-- 📱 Móviles (320px+)
-- 📱 Tablets (768px+)
-- 💻 Desktop (1024px+)
+## 📱 Responsive Design
 
-## 🎬 Para grabar videos
+The application is optimized for:
+- 📱 **Mobile** (320px+): Natural scrolling, touch-friendly interface
+- 📱 **Tablet** (768px+): Balanced layout with improved spacing
+- 💻 **Desktop** (1024px+): Full scroll snapping and hover effects
 
-1. Activa el modo **Autoplay**
-2. La aplicación avanzará automáticamente cada 3 segundos
-3. Perfecto para crear demos o presentaciones
+## 🎬 Key Features
 
-## 📄 Licencia
+### Scroll Behavior
+- **Desktop**: Smooth scroll snapping between sections
+- **Mobile**: Natural scrolling with momentum and touch support
+- **Direction Changes**: Smooth transitions without getting stuck
 
-MIT License - Libre para uso personal y comercial.
+### Animations
+- **Typewriter Effect**: Dynamic title animation
+- **Framer Motion**: Smooth section transitions
+- **Particle Effects**: Subtle background animations
+- **Hover Effects**: Interactive elements throughout
+
+### Performance
+- **Optimized Images**: Properly sized and compressed
+- **Lazy Loading**: Efficient resource loading
+- **Modern CSS**: Hardware-accelerated animations
+
+## 🛠️ Development
+
+### Project Structure
+```
+src/
+├── components/
+│   ├── sections/          # Main page sections
+│   ├── navigation/        # Navigation components
+│   └── CardCarousel.tsx   # Image carousel
+├── data/
+│   └── portfolio.ts       # Portfolio data
+├── hooks/
+│   ├── useScroll.ts       # Scroll detection
+│   ├── useScrollSnap.ts   # Scroll snapping logic
+│   └── useSectionNavigation.ts
+├── types/
+│   └── index.ts           # TypeScript definitions
+└── utils/
+    └── animations.ts      # Animation utilities
+```
+
+### Available Scripts
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## 📄 License
+
+MIT License - Free for personal and commercial use.
+
+## 🤝 Contributing
+
+Feel free to fork this project and customize it for your own portfolio. If you make improvements, pull requests are welcome!
+
+---
+
+**Built with ❤️ by Francisco Suarez**

@@ -1283,7 +1283,7 @@
 
 /* Enhanced scroll performance */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* Restore normal smooth scrolling */
   scroll-padding-top: 0;
 }
 

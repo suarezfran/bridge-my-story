@@ -5,6 +5,15 @@ export const useScrollSnap = () => {
   const scrollTimeout = useRef<NodeJS.Timeout>();
 
   useEffect(() => {
+    // Detect if device is mobile/touch device
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                     ('ontouchstart' in window) || 
+                     (navigator.maxTouchPoints > 0);
+    
+    // Only enable scroll snapping on desktop devices
+    if (isMobile) {
+      return;
+    }
     const handleScroll = () => {
       if (isScrolling.current) return;
       

@@ -57,32 +57,30 @@ export const projects: Project[] = [
 
 export const experience: Experience[] = [
   {
-    id: 'exp-1',
-    company: 'Tech Company',
-    position: 'Senior Software Engineer',
+    id: 'glic-solutions-2',
+    company: 'Glic Solutions',
+    position: 'Software Engineer II',
     location: 'Montevideo, Uruguay',
-    startDate: '2022-01',
-    endDate: '2024-01',
+    startDate: '2024-10',
+    endDate: 'Present',
     description: [
-      'Led development of microservices architecture',
-      'Mentored junior developers',
-      'Implemented CI/CD pipelines'
+      'Experienced in full-stack development with a strong focus on backend and system architecture.',
+      'Delivered client support and implemented tailored feature enhancements.',
+      'Spearheaded the design and implementation of backend platforms to enhance system reliability and performance.'
     ],
-    technologies: ['React', 'Node.js', 'AWS', 'Docker']
   },
   {
-    id: 'exp-2',
-    company: 'Startup Inc',
-    position: 'Full Stack Developer',
-    location: 'Remote',
-    startDate: '2020-06',
-    endDate: '2021-12',
+    id: 'glic-solutions-1',
+    company: 'Glic Solutions',
+    position: 'Software Engineer I',
+    location: 'Montevideo, Uruguay',
+    startDate: '2022-12',
+    endDate: '2024-10',
     description: [
-      'Developed web applications from scratch',
-      'Collaborated with cross-functional teams',
-      'Optimized application performance'
+      'Managed technology migrations, ensuring seamless transitions and system stability.',
+      'Collaborated with team leaders to implement code refactoring and performance optimizations.',
+      'Generated security reports, identifying vulnerabilities and code quality issues to support remediation efforts and maintain compliance with best practices.'
     ],
-    technologies: ['Vue.js', 'Python', 'PostgreSQL', 'Redis']
   }
 ];
 

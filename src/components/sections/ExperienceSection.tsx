@@ -27,13 +27,6 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experience }) => 
           Professional Experience
         </motion.h2>
         
-        <motion.p 
-          className="section-description"
-          variants={staggerItem}
-        >
-          My journey in software development has been marked by continuous learning and growth.
-        </motion.p>
-        
         <motion.div 
           className="experience-timeline"
           variants={staggerItem}
@@ -59,14 +52,6 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experience }) => 
                   <li key={index}>{item}</li>
                 ))}
               </ul>
-              
-              <div className="experience-technologies">
-                {exp.technologies.map((tech) => (
-                  <span key={tech} className="tech-tag">
-                    {tech}
-                  </span>
-                ))}
-              </div>
             </motion.div>
           ))}
         </motion.div>

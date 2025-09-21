@@ -53,7 +53,7 @@ export interface ContactInfo {
   email: string;
   linkedin?: string;
   github?: string;
-  twitter?: string;
+  whatsapp?: string;
   phone?: string;
 }
 

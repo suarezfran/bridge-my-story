@@ -86,23 +86,21 @@ export const experience: Experience[] = [
 
 export const education: Education[] = [
   {
-    id: 'edu-1',
-    institution: 'University of Technology',
+    id: 'ort',
+    institution: 'Universidad ORT Uruguay',
     degree: 'Bachelor of Computer Science',
     field: 'Computer Science',
-    startDate: '2016-03',
-    endDate: '2020-12',
-    description: 'Focus on software engineering and algorithms'
+    startDate: '2022-03',
+    description: 'Focused on software engineering, algorithm design, and solving complex real-world problems.'
   },
   {
-    id: 'edu-2',
-    institution: 'Online Platform',
-    degree: 'Certification',
-    field: 'Cloud Computing',
-    startDate: '2021-01',
-    endDate: '2021-06',
-    description: 'AWS Solutions Architect certification'
-  }
+    id: 'english',
+    institution: 'Michigan Language Assessment',
+    degree: 'Certificate of Competency in English (ECCE)',
+    field: 'English Language',
+    startDate: '2021',
+    description: 'Advanced English certification.'
+  }  
 ];
 
 export const skills: Skill[] = [
@@ -134,8 +132,8 @@ export const achievements: Achievement[] = [
 ];
 
 export const contactInfo: ContactInfo = {
-  email: 'francisco@example.com',
-  linkedin: 'https://linkedin.com/in/francisco-suarez',
-  github: 'https://github.com/francisco-suarez',
-  twitter: 'https://twitter.com/francisco_dev'
+  email: 'franciscoysuarez@gmail.com',
+  linkedin: 'https://linkedin.com/in/fransuarez',
+  github: 'https://github.com/suarezfran',
+  whatsapp: 'https://wa.me/59894137314'
 };

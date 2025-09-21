@@ -9,14 +9,13 @@ import AboutSection from '@/components/sections/AboutSection';
 import ProjectsSection from '@/components/sections/ProjectsSection';
 import ExperienceSection from '@/components/sections/ExperienceSection';
 import EducationSection from '@/components/sections/EducationSection';
-import SanFranciscoSection from '@/components/sections/SanFranciscoSection';
-import ProgressIndicator from '@/components/navigation/ProgressIndicator';
+import ContactSection from '@/components/sections/ContactSection';
 import SectionNavigation from '@/components/navigation/SectionNavigation';
 import './App.css';
 
 const App: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { currentSection, scrollProgress } = useScroll();
+  const { currentSection } = useScroll();
   const { scrollToSection } = useSectionNavigation();
   
   // Enable scroll snapping
@@ -48,7 +47,6 @@ const App: React.FC = () => {
         />
       </div>
 
-      <ProgressIndicator scrollProgress={scrollProgress} />
 
       <SectionNavigation 
         currentSection={currentSection}
@@ -66,7 +64,7 @@ const App: React.FC = () => {
         
         <EducationSection education={education} />
         
-        <SanFranciscoSection />
+        <ContactSection />
       </div>
 
       <div className="particles-container">

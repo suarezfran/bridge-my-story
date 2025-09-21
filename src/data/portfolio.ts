@@ -1,44 +1,5 @@
-import { Section, Project, Experience, Education, Skill, Achievement, ContactInfo } from '@/types';
+import { Project, Experience, Education, Skill, Achievement, ContactInfo } from '@/types';
 
-export const sections: Section[] = [
-  {
-    id: 0,
-    title: "Francisco Suarez",
-    subtitle: "Software Engineer & Creator",
-    showName: true,
-    bgOpacity: 0.1
-  },
-  {
-    id: 1, 
-    title: "About Me",
-    subtitle: "Passionate developer from Uruguay",
-    bgOpacity: 0.3
-  },
-  {
-    id: 2,
-    title: "Projects",
-    subtitle: "Innovation through code",
-    bgOpacity: 0.4
-  },
-  {
-    id: 3,
-    title: "Experience",
-    subtitle: "Building the future",
-    bgOpacity: 0.5
-  },
-  {
-    id: 4,
-    title: "Education",
-    subtitle: "Continuous learning",
-    bgOpacity: 0.6
-  },
-  {
-    id: 5,
-    title: "San Francisco",
-    subtitle: "Where dreams meet innovation",
-    bgOpacity: 0.7
-  }
-];
 
 export const projects: Project[] = [
   {

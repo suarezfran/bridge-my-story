@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { fadeInRight, staggerContainer, staggerItem, hoverLift } from '@/utils/animations';
+import { staggerContainer, staggerItem, hoverLift } from '@/utils/animations';
 import { Education } from '@/types';
 
 interface EducationSectionProps {

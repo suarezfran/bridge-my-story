@@ -40,7 +40,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ stats }) => {
           className="about-stats"
           variants={staggerItem}
         >
-          {stats.map((stat, index) => (
+          {stats.map((stat) => (
             <motion.div 
               key={stat.label}
               className="stat-item"

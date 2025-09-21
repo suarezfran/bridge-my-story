@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useScroll } from '@/hooks/useScroll';
 import { useSectionNavigation } from '@/hooks/useSectionNavigation';
 import { useScrollSnap } from '@/hooks/useScrollSnap';
-import { sections, projects, experience, education } from '@/data/portfolio';
+import { projects, experience, education } from '@/data/portfolio';
 import HeroSection from '@/components/sections/HeroSection';
 import AboutSection from '@/components/sections/AboutSection';
 import ProjectsSection from '@/components/sections/ProjectsSection';
@@ -43,7 +43,7 @@ const App: React.FC = () => {
         <motion.div 
           className="bg-overlay"
           style={{
-            opacity: sections[currentSection]?.bgOpacity || 0.1
+            opacity: 0.1
           }}
         />
       </div>
@@ -51,7 +51,6 @@ const App: React.FC = () => {
       <ProgressIndicator scrollProgress={scrollProgress} />
 
       <SectionNavigation 
-        sections={sections}
         currentSection={currentSection}
         onSectionClick={scrollToSection}
       />

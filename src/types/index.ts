@@ -1,11 +1,3 @@
-export interface Section {
-  id: number;
-  title: string;
-  subtitle: string;
-  showName?: boolean;
-  bgOpacity: number;
-}
-
 export interface StatItem {
   number: string;
   label: string;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { fadeInLeft, staggerContainer, staggerItem, hoverLift } from '@/utils/animations';
+import { staggerContainer, staggerItem, hoverLift } from '@/utils/animations';
 import { Experience } from '@/types';
 
 interface ExperienceSectionProps {

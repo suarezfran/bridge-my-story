@@ -9,6 +9,7 @@ import AboutSection from '@/components/sections/AboutSection';
 import ProjectsSection from '@/components/sections/ProjectsSection';
 import ExperienceSection from '@/components/sections/ExperienceSection';
 import EducationSection from '@/components/sections/EducationSection';
+import SanFranciscoSection from '@/components/sections/SanFranciscoSection';
 import ContactSection from '@/components/sections/ContactSection';
 import SectionNavigation from '@/components/navigation/SectionNavigation';
 import './App.css';
@@ -58,6 +59,8 @@ const App: React.FC = () => {
         <ProjectsSection projects={projects} />
         
         <EducationSection education={education} achievements={achievements} />
+        
+        <SanFranciscoSection />
         
         <ContactSection />
       </div>

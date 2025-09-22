@@ -11,7 +11,7 @@ const SectionNavigation: React.FC<SectionNavigationProps> = ({
   currentSection, 
   onSectionClick 
 }) => {
-  const totalSections = 6; // Total number of sections in the portfolio
+  const totalSections = 7; // Total number of sections in the portfolio
 
   return (
     <motion.div 

@@ -30,7 +30,7 @@ const ContactSection: React.FC = () => {
   return (
     <motion.section 
       className="scroll-section contact-section"
-      data-section="5"
+      data-section="6"
     >
       <motion.div
         className="contact-content"

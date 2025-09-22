@@ -11,7 +11,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experience }) => 
   return (
     <motion.section 
       className="scroll-section experience-section"
-      data-section="3"
+      data-section="2"
     >
       <motion.div
         className="experience-content"

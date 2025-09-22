@@ -2,7 +2,9 @@ import { useEffect, useRef } from 'react';
 
 export const useScrollSnap = () => {
   const isScrolling = useRef(false);
-  const scrollTimeout = useRef<NodeJS.Timeout>();
+  const scrollTimeout = useRef<number | null>(null);
+  const isManualNavigation = useRef(false);
+  const manualNavigationTimeout = useRef<number | null>(null);
 
   useEffect(() => {
     // Detect if device is mobile/touch device
@@ -22,7 +24,7 @@ export const useScrollSnap = () => {
       const windowHeight = window.innerHeight;
       const scrollTop = window.pageYOffset;
       
-      let closestSection = null;
+      let closestSection: Element | null = null;
       let closestDistance = Infinity;
       
       sections.forEach((section) => {
@@ -39,7 +41,7 @@ export const useScrollSnap = () => {
       // Only snap if we're close to a section (within 15% of viewport height)
       // This creates a more noticeable "magnetic" effect for better section alignment
       if (closestSection && closestDistance < windowHeight * 0.15) {
-        const targetTop = closestSection.offsetTop;
+        const targetTop = (closestSection as HTMLElement).offsetTop;
         window.scrollTo({
           top: targetTop,
           behavior: 'smooth'
@@ -49,7 +51,7 @@ export const useScrollSnap = () => {
 
     // Very gentle scroll handler - only activates when scrolling stops
     const handleScroll = () => {
-      if (isScrolling.current) return;
+      if (isScrolling.current || isManualNavigation.current) return;
       
       isScrolling.current = true;
       
@@ -59,19 +61,46 @@ export const useScrollSnap = () => {
       }
       
       // Set timeout to detect when scrolling stops - balanced delay for responsiveness
-      scrollTimeout.current = setTimeout(() => {
+      scrollTimeout.current = window.setTimeout(() => {
         snapToNearestSection();
         isScrolling.current = false;
       }, 200); // Balanced timeout for good responsiveness without interference
     };
+
+    // Function to temporarily disable scroll snapping for manual navigation
+    const disableScrollSnapTemporarily = () => {
+      isManualNavigation.current = true;
+      
+      // Clear existing manual navigation timeout
+      if (manualNavigationTimeout.current) {
+        clearTimeout(manualNavigationTimeout.current);
+      }
+      
+      // Re-enable scroll snapping after manual navigation is complete
+      manualNavigationTimeout.current = window.setTimeout(() => {
+        isManualNavigation.current = false;
+      }, 1000); // Give enough time for smooth scroll to complete
+    };
+
+    // Listen for manual navigation events
+    const handleManualNavigation = () => {
+      disableScrollSnapTemporarily();
+    };
+
+    // Add event listener for manual navigation
+    window.addEventListener('manual-navigation', handleManualNavigation);
 
     // Add only scroll event listener - no wheel interference
     window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('manual-navigation', handleManualNavigation);
       if (scrollTimeout.current) {
         clearTimeout(scrollTimeout.current);
+      }
+      if (manualNavigationTimeout.current) {
+        clearTimeout(manualNavigationTimeout.current);
       }
     };
   }, []);

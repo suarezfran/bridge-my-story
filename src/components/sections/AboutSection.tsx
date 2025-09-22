@@ -6,10 +6,10 @@ import CardCarousel from '@/components/CardCarousel';
 const AboutSection: React.FC = () => {
   // Your personal photos for the carousel
   const personalImages = [
-    '/tree-photo.jpeg',
-    '/pl-photo.jpeg',
-    '/yt-photo.jpeg', 
-    '/gg-mine.jpeg'
+    '/about-me/tree-photo.jpeg',
+    '/about-me/pl-photo.jpeg',
+    '/about-me/yt-photo.jpeg', 
+    '/about-me/gg-mine.jpeg'
   ];
 
   return (

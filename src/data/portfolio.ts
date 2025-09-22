@@ -41,6 +41,7 @@ export const projects: Project[] = [
     description: 'Educational consulting platform showcasing innovative solutions for institutional management, teacher training, and school improvement.',
     technologies: ['Astro', 'TypeScript', 'Tailwind CSS'],
     githubUrl: 'https://github.com/suarezfran/plus-edu',
+    liveUrl: 'https://maseduglobal.com/',
     featured: true,
     inProgress: false
   },

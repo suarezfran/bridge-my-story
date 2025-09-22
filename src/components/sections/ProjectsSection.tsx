@@ -11,7 +11,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
   return (
     <motion.section 
       className="scroll-section projects-section"
-      data-section="2"
+      data-section="3"
     >
       <motion.div
         className="projects-content"
